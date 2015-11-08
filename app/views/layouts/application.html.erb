@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GigsApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header>
+  <h1 style="text-align:center; color:red; font-size: 48px">Gigs Festival Reservation App</h1>
+</header>
+
+<div><strong><%= link_to 'Back', root_path %></strong></div>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<%= render partial: "layouts/menu"%>
+
+<%= yield %>
+
+</body>
+</html>

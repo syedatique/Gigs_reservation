@@ -1,0 +1,21 @@
+<!-- <div>
+  //<%# if can? :create, Gig %>
+<%#= link_to "New Gig", new_recipe_path if can? :create, Gig %>
+//<%# end %>  
+</div> -->
+
+<nav style="padding: 20px;">
+  <p><strong>Venue Name: </strong><%= venue.name%></p>
+
+  <p><strong>Venue Address: </strong><%= venue.address%></p>
+
+  <p><strong>Venue Seat Number: </strong><%= venue.seat%></p>
+
+  <!-- <p><strong>Category Name:</strong> <%#= venue.category.try :name %></p> -->
+<ul>
+  <li><%= button_to('Show', venue, method: :get)%></li>
+  <li><%= button_to('Edit', edit_venue_path(venue), method: :get)%></li>
+  <li><%= button_to('Delete venue', venue_path(venue), method: :delete, data:{confirm: 'Delete the venue? Are you sure?'})%></li>
+</ul>
+ 
+</nav>

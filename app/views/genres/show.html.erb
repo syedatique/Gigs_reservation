@@ -1,0 +1,14 @@
+<!-- <p id="notice"><%= notice %></p> -->
+<p>
+  <strong>Genre :</strong>
+  <%= @genre.name %>
+</p>
+
+<p><strong>Gigs:</strong><br>
+  <% @genre.gigs.each do |gig| %>
+    <%= gig.try(:name) %><br>
+  <% end %>
+</p>
+
+<strong><%= link_to 'Edit', edit_genre_path(@genre) %></strong>
+<strong><%= link_to 'Back', genres_path %></strong>

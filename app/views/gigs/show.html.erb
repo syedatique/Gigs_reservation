@@ -1,0 +1,32 @@
+<!-- <p id="notice"><%= notice %></p> -->
+<p>
+  <strong>Gigs Name:</strong>
+  <%= @gig.name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= link_to image_tag(@gig.gig_image.thumb.url), @gig.gig_image.medium.url %>
+</p>
+
+<p>
+  <strong>Genre:</strong>
+  <%= @gig.name %> is in Genre: <%= @gig.genre.try(:name) %> <%#= Genre.find(@gig.genre_id).name%>
+  
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @gig.description %>
+</p>
+
+<p>
+<strong>Venues: </strong><br>
+  <% @gig.schedules.each do |schedule| %>
+  <%= schedule.schedule %>
+  <%= schedule.venue.try(:name) %><br>
+  <% end %>
+</p>
+
+<strong><%= link_to 'Edit', edit_gig_path(@gig) %></strong>
+<strong><%= link_to 'Back', gigs_path %></strong>

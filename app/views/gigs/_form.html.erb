@@ -1,0 +1,49 @@
+<%= form_for(@gig) do |f| %>
+  <% if @gig.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@gig.errors.count, "error") %> prohibited this gig from being saved:</h2>
+      <ul>
+      <% @gig.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div style="width: 500px">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :gig_image %><br />
+    <%= f.file_field :gig_image %>
+  </div>
+  <!-- If want to use remote image upload, use following field -->
+  <!-- Also, need to add :remote_gig_image_url to params permission in gig_controller.rb -->
+  <!-- <div class="field">
+    <%#= f.label :remote_gig_image_url %><br />
+    <%#= f.text_field :remote_gig_image_url %>
+  </div> -->
+
+  <div style="width: 500px">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div style="width: 500px">
+    <%= f.label :genre_id %>
+    <%= f.select("genre_id", Genre.all.map {|c| [c.name, c.id]}, {prompt: 'Select Genre'}, html_options = {}) %>
+  </div>
+  <br>
+
+ <p>Choose your Venues:</p>
+  <div >
+    <%= collection_check_boxes(:gig, :venue_ids, Venue.all, :id, :name) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

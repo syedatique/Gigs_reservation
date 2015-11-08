@@ -1,0 +1,10 @@
+<%= form_for(@genre) do |f| %>
+
+  <div style="width: 500px">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

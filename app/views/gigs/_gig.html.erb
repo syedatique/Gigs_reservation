@@ -1,0 +1,22 @@
+<!-- <div>
+  //<%# if can? :create, Gig %>
+<%#= link_to "New Gig", new_recipe_path if can? :create, Gig %>
+//<%# end %>
+  
+</div> -->
+<%# @recipes.each do |recipe| %>
+<nav style="padding: 20px;">
+  <p><strong>Gig Name:</strong><%= gig.name%></p>
+
+  <p><strong>Genre Name:</strong> <%= gig.genre.try :name %></p>
+
+  <p><strong>Gig Image: </strong><%= image_tag gig.gig_image.url %></p>
+
+  <!-- <p><strong>Category Name:</strong> <%#= gig.category.try :name %></p> -->
+<ul>
+  <li><%= button_to('Show', gig, method: :get)%></li>
+  <li><%= button_to('Edit', edit_gig_path(gig), method: :get)%></li>
+  <li><%= button_to('Delete gig', gig_path(gig), method: :delete, data:{confirm: 'Delete the gig? Are you sure?'})%></li>
+</ul>
+ 
+</nav>

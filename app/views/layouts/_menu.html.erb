@@ -1,0 +1,35 @@
+<div class='login'>
+  <% if current_user %>
+    <p>Welcome back <%= current_user.email %></p>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+  <% else %>
+    <%= link_to "Sign In", new_user_session_path %>
+    <%= link_to "Register", new_user_registration_path %>
+  <% end %>
+</div><br />
+
+
+<nav class="top-bar" data-topbar role="navigation">
+<section class="top-bar-section">
+  <ul class="left">
+    <li> <%= link_to "All Gigs", gigs_path %> </li>
+    <li> <%= form_tag(gigs_path, method: "get") do %></li>
+    <li><%= text_field_tag(:name) %></li>
+    <li><%= submit_tag("Search Gigs") %></li>
+    <li><% end %></li>
+  </ul>
+</section>
+<section class="top-bar-section">
+  <ul>
+    <li> <%= link_to "All Venues", venues_path %> </li>
+    <li> <%= form_tag(venues_path, method: "get") do %></li>
+    <li><%= text_field_tag(:name) %></li>
+    <li><%= submit_tag("Search Venues") %></li>
+    <li><% end %></li>
+  </ul>
+</section>
+</nav>
+
+<li> <%#= link_to "Users", users_path %> </li>
+
+<li> <%#= link_to "Viewings", viewings_path %> </li>

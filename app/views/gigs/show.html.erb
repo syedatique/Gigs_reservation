@@ -21,7 +21,7 @@
 </p>
 
 <p>
-<strong>Venues: </strong><br>
+<strong>Schedules and Venues: </strong><br>
   <% @gig.schedules.each do |schedule| %>
   <%= schedule.schedule %>
   <%= schedule.venue.try(:name) %><br>

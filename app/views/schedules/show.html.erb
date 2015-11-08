@@ -1,0 +1,19 @@
+<!-- <p id="notice"><%= notice %></p> -->
+<p>
+  <strong>Gig:</strong>
+  <%= @schedule.gig.try(:name) %>
+</p>
+
+<p>
+  <strong>Venue:</strong>
+  <%= @schedule.venue.try(:name) %>
+</p>
+
+<p>
+  <strong>Schedule:</strong>
+  <%= @schedule.schedule %>
+</p>
+
+
+<strong><%= link_to 'Edit', edit_schedule_path(@schedule) %></strong>
+<strong><%= link_to 'Back', schedules_path %></strong>

@@ -1,11 +1,11 @@
 <div class='login'>
   <% if current_user %>
-    <p>Welcome back <%= current_user.email %></p>
-    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to "Sign In", new_user_session_path %>
-    <%= link_to "Register", new_user_registration_path %>
-  <% end %>
+    <li><p>Welcome back <%= current_user.email %></p></li><br>
+    <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+  <li><% else %></li>
+    <li><%= link_to "Sign In", new_user_session_path %></li>
+    <li><%= link_to "Register", new_user_registration_path %></li>
+  <li><% end %></li>
 </div><br />
 
 
@@ -19,12 +19,23 @@
     <li><% end %></li>
   </ul>
 </section>
+
 <section class="top-bar-section">
   <ul>
     <li> <%= link_to "All Venues", venues_path %> </li>
     <li> <%= form_tag(venues_path, method: "get") do %></li>
     <li><%= text_field_tag(:name) %></li>
     <li><%= submit_tag("Search Venues") %></li>
+    <li><% end %></li>
+  </ul>
+</section>
+
+<section class="top-bar-section">
+  <ul class="right">
+    <li> <%= link_to "Schedule", schedules_path %> </li>
+    <li> <%= form_tag(schedules_path, method: "get") do %></li>
+    <li><%= text_field_tag(:name) %></li>
+    <li><%= submit_tag("Search Schedules") %></li>
     <li><% end %></li>
   </ul>
 </section>

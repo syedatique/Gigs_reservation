@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
   
-  devise_for :users
-  root to: 'home#index'
-
-  # resources :schedules
-  resources :venues
-  resources :genres
-  resources :gigs
   
+  root to: 'home#index'
+  devise_for :users
+  resources :venues
+  resources :gigs
   resources :viewings
+  resources :schedules
+  resources :genres
 
 end

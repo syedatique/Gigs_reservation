@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.create!(booking_params.merge(user_id: current_user.id))
+    @booking = Booking.create(booking_params.merge(user_id: current_user.id))
     redirect_to schedule_bookings_path
     # binding.pry
   end

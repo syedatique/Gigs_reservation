@@ -1,19 +1,19 @@
-<!-- <p id="notice"><%= notice %></p> -->
-<p>
-  <strong>Gig:</strong>
-  <%= @schedule.gig.try(:name) %>
-</p>
+<br>
+<br>
+<div>
+<li><strong>Gig:</strong><%= @schedule.gig.try(:name) %></li><br>
 
-<p>
-  <strong>Venue:</strong>
-  <%= @schedule.venue.try(:name) %>
-</p>
+<li><strong>Venue:</strong><%= @schedule.venue.try(:name) %></li><br>
 
-<p>
-  <strong>Schedule:</strong>
-  <%= @schedule.schedule %>
-</p>
+<li><strong>Schedule:</strong><%= @schedule.schedule %></li><br>
+<br>
 
+<div>
+  <strong><%#= link_to 'Edit', edit_schedule_path(@schedule) %></strong>
+  <strong><%= link_to 'Back', schedules_path %></strong>
 
-<strong><%= link_to 'Edit', edit_schedule_path(@schedule) %></strong>
-<strong><%= link_to 'Back', schedules_path %></strong>
+  <strong><%= link_to 'Book This', new_schedule_booking_path(@schedule) %></strong>
+</div>
+
+  
+</div>

@@ -38,9 +38,9 @@ v3 = Venue.create!(name: 'Edinburgh', address: 'Mayor Street', seat: 70)
 
 Schedule.delete_all
 
-Schedule.create!(gig: g1, venue: v1)
-Schedule.create!(gig: g2, venue: v2)
-Schedule.create!(gig: g3, venue: v3)
+Schedule.create!(gig: g1, venue: v1, schedule: (Date.today+8))
+Schedule.create!(gig: g2, venue: v2, schedule: (Date.today+10))
+Schedule.create!(gig: g3, venue: v3, schedule: (Date.today+14))
 
 User.delete_all
 

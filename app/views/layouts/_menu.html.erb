@@ -2,7 +2,7 @@
   <% if current_user %>
     <li><p>Welcome back <%= current_user.email %></p></li><br>
     <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-  <li><% else %></li>
+  <li><% else %></li><br>
     <li><%= link_to "Sign In", new_user_session_path %></li>
     <li><%= link_to "Register", new_user_registration_path %></li>
   <li><% end %></li>

@@ -12,11 +12,10 @@
 
   <p><strong>Gig Image: </strong><%= image_tag gig.gig_image.url %></p>
 
-  <!-- <p><strong>Category Name:</strong> <%#= gig.category.try :name %></p> -->
 <ul>
   <li><%= button_to('Show', gig, method: :get)%></li>
-  <li><%= button_to('Edit', edit_gig_path(gig), method: :get)%></li>
-  <li><%= button_to('Delete gig', gig_path(gig), method: :delete, data:{confirm: 'Delete the gig? Are you sure?'})%></li>
+  <li><%= button_to('Edit', edit_gig_path(gig), method: :get) if can? :manage, Gig %></li>
+  <li><%= button_to('Delete gig', gig_path(gig), method: :delete, data:{confirm: 'Delete the gig? Are you sure?'}) if can? :delete, Gig %></li>
 </ul>
  
 </nav>

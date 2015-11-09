@@ -1,0 +1,24 @@
+<!-- <p id="notice"><%= notice %></p> -->
+<p>
+  <strong>Users Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @user.role %>
+</p>
+
+<p>
+<strong>Schedules and Viewings: </strong><br>
+  <% @user.viewings.each do |viewing| %>
+  <%= viewing.date %>
+  <%= viewing.schedule.schedule %><br>
+  <%= viewing.schedule.gig.try(:name) %><br>
+  <%= viewing.schedule.venue.try(:name) %><br>
+
+  <% end %>
+</p>
+
+<strong><%= link_to 'Edit', edit_user_path(@user) %></strong>
+<strong><%= link_to 'Back', users_path %></strong>

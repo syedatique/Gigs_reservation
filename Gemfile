@@ -45,6 +45,7 @@ group :development, :test do
   gem 'cancancan'
   gem 'carrierwave'
   gem 'rmagick'
+  gem 'social-share-button'
 end
 
 group :development do

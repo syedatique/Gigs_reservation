@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   load_and_authorize_resource
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -8,6 +9,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @schedule = Schedule.new
   end
 
   def create
@@ -22,16 +24,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
     @viewings = @user.viewings
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = "User was updated"
       redirect_to(users_path)
@@ -42,14 +41,19 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
+    @user.destroy
     flash[:notice] = "User removed"
     redirect_to(root_path)
   end
   
+
   private
+  def set_user
+    @user = User.find(params[:id])
+  end
+  
   def user_params
-    params[:user].permit(:email, :password)
+    params[:user].permit(:email, :password, :role, :schedule_ids=>[])
   end
 
 end

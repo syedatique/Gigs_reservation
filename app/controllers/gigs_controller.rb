@@ -18,7 +18,7 @@ class GigsController < ApplicationController
   end
 
   def show
-    @viewings = @gig.viewings
+    # @bookings = @gig.bookings
   end
 
   def new
@@ -67,6 +67,6 @@ class GigsController < ApplicationController
   end
 
   def gig_params
-    params.require(:gig).permit(:name, :description, :genre_id, :gig_image, :venue_ids=>[], )
+    params.require(:gig).permit(:name, :description, :genre_id, :gig_image, :venue_ids=>[])
   end
 end

@@ -10,10 +10,12 @@ class SchedulesController < ApplicationController
   end
 
   def show
+    
   end
 
   def new
     @schedule = Schedule.new
+    # @user = User.new
   end
 
   def edit
@@ -60,7 +62,7 @@ class SchedulesController < ApplicationController
   end
   
   def schedule_params
-    params.require(:schedule).permit(:gig_id, :venue_id, :schedule)
+    params.require(:schedule).permit(:gig_id, :venue_id, :schedule, :user_ids=>[])
   end
 
 end

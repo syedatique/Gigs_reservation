@@ -7,18 +7,29 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<header>
-  <h1 style="text-align:center; color:red; font-size: 48px">Gigs Festival Reservation App</h1>
-</header>
+<div class="wrapper">
+  <header>
+  <h1 style="text-align:center; color:red; font-size: 40px">Gigs Festival Reservation App</h1>
+  </header>
 
-<div><h2><%= link_to 'HOME', root_path %></h2></div>
+  <div><h2><%= link_to 'HOME', root_path %></h2></div>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
 
-<%= render partial: "layouts/menu"%>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 
-<%= yield %>
+  <%= render partial: "layouts/menu"%>
 
+  <%= yield %>
+
+    <div class="push"></div>
+</div>
+<div class="footer">
+  
+    <li><p>Copyright (c) 2015!</p></li>
+  <li><p>Created by: Syed Atique</p></li><li><p>Contact information: <a href="mailto:syed@syed.com">syed@syed.com</a>.</p></li>
+  <li><p><%= social_share_button_tag("My Site") %></p></li>
+ 
+  </div>
 </body>
 </html>

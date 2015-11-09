@@ -5,8 +5,8 @@
   
   <ul>
   <li><%= button_to('Show', schedule_path(schedule), method: :get)%></li>
-  <li><%= button_to('Edit', edit_schedule_path(schedule), method: :get)%></li>
-  <li><%= button_to('Delete', schedule_path(schedule), method: :delete, data:{confirm: 'Delete the schedule? Are you sure?'})%></li>
+  <li><%= button_to('Edit', edit_schedule_path(schedule), method: :get) if can? :manage, Schedule %></li>
+  <li><%= button_to('Delete', schedule_path(schedule), method: :delete, data:{confirm: 'Delete the schedule? Are you sure?'}) if can? :delete, Schedule %></li>
  </ul>
 </nav>
 

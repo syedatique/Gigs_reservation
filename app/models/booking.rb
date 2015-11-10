@@ -7,4 +7,9 @@ class Booking < ActiveRecord::Base
     where(schedule_id: schedule_id, user_id: user_id).count
   end
 
+  # def multiple_booking()
+  #   @bookings
+  # end
+
+
 end

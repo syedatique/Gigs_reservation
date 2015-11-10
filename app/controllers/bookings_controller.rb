@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
     if current_user.role == 'admin'
       @bookings = Booking.all
     else
-      @bookings = Booking.where(user_id: current_user.id, schedule_id: params[:schedule_id])
+      @booking = Booking.where(user_id: current_user.id, schedule_id: params[:schedule_id]).first
     end
   end
 
@@ -22,10 +22,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-    # @schedule = Schedule.find(params[:schedule_id])
-    # if @schedule.users.where(email: current_user.email).count > 0
-    #   redirect_to schedules_path, alert: "You've already booked this show"
-    # else
     # binding.pry
     tickets_amount = params[:amount][:amount].to_i
     if seat_availability

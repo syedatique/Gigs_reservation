@@ -1,4 +1,3 @@
-<!-- <p id="notice"><%= notice %></p> -->
 <p>
   <strong>Users Email:</strong>
   <%= @user.email %>
@@ -10,15 +9,11 @@
 </p>
 
 <p>
-<strong>Schedules and Viewings: </strong><br>
-  <% @user.viewings.each do |viewing| %>
-  <%= viewing.date %>
-  <%= viewing.schedule.human_readable_date %><br>
-  <%= viewing.schedule.gig.try(:name) %><br>
-  <%= viewing.schedule.venue.try(:name) %><br>
+<strong>Schedules and Bookingss: </strong><br>
+  <% @user.schedules.each do |schedule| %>
+  <%= schedule.human_readable_date %><br>
+  <%= schedule.gig.try(:name) %><br>
+  <%= schedule.venue.try(:name) %><br>
 
   <% end %>
 </p>
-
-<strong><%= link_to 'Edit', edit_user_path(@user) %></strong>
-<strong><%= link_to 'Back', users_path %></strong>

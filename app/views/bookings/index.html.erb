@@ -1,5 +1,18 @@
-<br><div><h1> OOOOOO !!!</h1></div>
-
+<br>
 <h1>Listing Booking</h1>
+<br>
+<% if current_user.role == 'admin' %>
+  <%= @bookings.each do |booking| %>
+    <p><strong>Gig Name:</strong><%= booking.schedule.gig.try(:name) %></p>
+    <p><strong> Venue Name: </strong> <%= booking.schedule.venue.try(:name) %></p>
+    <p>Schedule: <strong><%= booking.schedule.human_readable_date %></strong></p>
+    <p>Tickets: <strong><%= Booking.how_many_tickets(params[:schedule_id], current_user.id) %></strong></p>
+    <% end %>
+<% else %>
+  <p><strong>Gig Name:</strong><%= @booking.schedule.gig.try(:name) %></p>
+  <p><strong> Venue Name: </strong> <%= @booking.schedule.venue.try(:name) %></p>
+  <p>Schedule: <strong><%= @booking.schedule.human_readable_date %></strong></p>
+  <p>Tickets: <strong><%= Booking.how_many_tickets(params[:schedule_id], current_user.id) %></strong></p>
 
-<%= render @bookings %>
+<% end %>
+

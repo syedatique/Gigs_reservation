@@ -6,7 +6,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%= link_to image_tag(@gig.gig_image.thumb.url), @gig.gig_image.medium.url %>
+  <%= link_to image_tag(@gig.gig_image.medium.url) %>
 </p>
 
 <p>
@@ -23,7 +23,7 @@
 <p>
 <strong>Schedules and Venues: </strong><br>
   <% @gig.schedules.each do |schedule| %>
-  <%= schedule.schedule %>
+  <%= schedule.human_readable_date %>
   <%= schedule.venue.try(:name) %><br>
   <% end %>
 </p>

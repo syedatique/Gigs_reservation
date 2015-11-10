@@ -1,8 +1,9 @@
 <div>
-
-  <h2><%= @schedule.gig.name %></h2>
-  <b><%= @schedule.venue.name %></b>
-  <b><%= @schedule.human_readable_date %></b>
+<br>
+  <p>Gig Name: <%= @schedule.gig.name %></p>
+  <p>Venue Name: <%= @schedule.venue.name %></p>
+  <p>Show Time<%= @schedule.human_readable_date %></p>
+  <p>Capacity: <%= @schedule.venue.seat %></p>
   <br>
   <br>
   <%= form_for([@schedule, @booking]) do |f| %>

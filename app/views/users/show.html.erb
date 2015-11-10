@@ -13,7 +13,7 @@
 <strong>Schedules and Viewings: </strong><br>
   <% @user.viewings.each do |viewing| %>
   <%= viewing.date %>
-  <%= viewing.schedule.schedule %><br>
+  <%= viewing.schedule.human_readable_date %><br>
   <%= viewing.schedule.gig.try(:name) %><br>
   <%= viewing.schedule.venue.try(:name) %><br>
 

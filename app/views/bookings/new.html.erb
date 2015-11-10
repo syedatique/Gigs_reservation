@@ -1,13 +1,13 @@
 <div>
+
+  <h2><%= @schedule.gig.name %></h2>
+  <b><%= @schedule.venue.name %></b>
+  <b><%= @schedule.human_readable_date %></b>
   <br>
   <br>
-  <li><%= form_for([@schedule, @booking]) do |f| %></li>
-  <li><strong><%= f.submit "Book Tickets" %></strong></li>
-  <li><% end %></li>
-
-
-  
-
+  <%= form_for([@schedule, @booking]) do |f| %>
+    <%= f.submit "Book Tickets" %>
+  <% end %>
 
 </div>
 

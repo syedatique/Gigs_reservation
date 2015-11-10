@@ -1,6 +1,11 @@
 class BookingsController < ApplicationController
 
-  load_and_authorize_resource :only => [:edit, :delete]
+  load_and_authorize_resource 
+  before_action :authenticate_user!
+
+  def index
+    @bookings = Booking.all
+  end
 
   def new
     @booking = Booking.new()
@@ -8,10 +13,23 @@ class BookingsController < ApplicationController
     # binding.pry
   end
 
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
   def create
     @booking = Booking.create(booking_params.merge(user_id: current_user.id))
-    redirect_to schedule_bookings_path
+    redirect_to schedule_booking_path(params[:schedule_id], @booking.id)
     # binding.pry
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
   end
 
 private

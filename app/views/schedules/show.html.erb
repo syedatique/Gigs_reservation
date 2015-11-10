@@ -5,7 +5,7 @@
 
 <li><strong>Venue:</strong><%= @schedule.venue.try(:name) %></li><br>
 
-<li><strong>Schedule:</strong><%= @schedule.schedule %></li><br>
+<li><strong>Schedule:</strong><%= @schedule.human_readable_date %></li><br>
 <br>
 
 <div>

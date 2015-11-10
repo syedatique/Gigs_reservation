@@ -1,0 +1,18 @@
+<div>
+<br>
+<br>
+<strong>User:</strong><%= @booking.user.try(:email) %><br>
+
+<strong>Gig:</strong><%= @booking.schedule.gig.try(:name) %><br>
+
+<strong>Venue:</strong><%= @booking.schedule.venue.try(:name) %><br>
+
+<strong>Schedule:</strong><%= @booking.schedule.human_readable_date %>
+<br>
+
+<div>
+  <%= link_to 'Back', schedules_path %>
+</div>
+
+  
+</div>

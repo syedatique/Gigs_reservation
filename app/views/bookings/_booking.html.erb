@@ -2,3 +2,7 @@
 <li><p><strong>Gig Name:</strong><%= booking.schedule.gig.try(:name) %></p></li>
 <li><p><strong> Venue Name: </strong> <%= booking.schedule.venue.try(:name) %></p></li>
 <li><p>Schedule: <strong><%= booking.schedule.schedule %></strong></p></li>
+
+<li><%#= button_to('Show', schedule_booking_path(booking), method: :get) if can? :manage, Booking %></li>
+
+<li><%#= button_to('Delete', schedule_booking_path(booking), method: :delete, data:{confirm: 'Delete the schedule? Are you sure?'}) if can? :delete, Booking %></li>

@@ -6,3 +6,12 @@
 <h1>Listing Schedules</h1>
 
 <%= render @schedules %>
+
+
+<h2>Your bookings</h2>
+
+<% @bookings.each do |b| %>
+  <h4><%= b.schedule.gig.name %></h4>
+  <b><%= b.schedule.human_readable_date %></b>
+  <%= link_to "Show Booking", schedule_booking_path(b.schedule_id, b.id) %>
+<% end %>

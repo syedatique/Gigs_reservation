@@ -7,6 +7,8 @@
   <br>
   <br>
   <%= form_for([@schedule, @booking]) do |f| %>
+    <%= label_tag 'How many tickets' %>
+    <%= number_field 'amount', :amount %>
     <%= f.submit "Book Tickets" %>
   <% end %>
 

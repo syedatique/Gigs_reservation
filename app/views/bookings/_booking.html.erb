@@ -1,7 +1,9 @@
+<br>
 <h1>Your Booking Request Details: </h1>
-<li><p><strong>Gig Name:</strong><%= booking.schedule.gig.try(:name) %></p></li>
-<li><p><strong> Venue Name: </strong> <%= booking.schedule.venue.try(:name) %></p></li>
-<li><p>Schedule: <strong><%= booking.schedule.human_readable_date %></strong></p></li>
+<p><strong>Gig Name:</strong><%= booking.schedule.gig.try(:name) %></p>
+<p><strong> Venue Name: </strong> <%= booking.schedule.venue.try(:name) %></p>
+<p>Schedule: <strong><%= booking.schedule.human_readable_date %></strong></p>
+<p>Tickets: <strong><%= Booking.how_many_tickets(params[:schedule_id], current_user.id) %></strong></p>
 
 <li><%#= button_to('Show', schedule_booking_path(booking), method: :get) if can? :manage, Booking %></li>
 

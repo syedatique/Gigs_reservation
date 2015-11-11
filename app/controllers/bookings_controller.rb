@@ -11,7 +11,6 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new()
     @schedule = Schedule.find(params[:schedule_id])
-    # binding.pry
   end
 
   def show
@@ -41,18 +40,8 @@ class BookingsController < ApplicationController
     @booking.destroy
   end
 
-private
-def booking_params
-  params.permit(:schedule_id)
-end
-
-# def seat_availability
-#   @schedule = Schedule.find(params[:schedule_id])
-#   capacity = @schedule.venue.seat
-#   total_booking = Booking.where(schedule_id: @schedule.id).count
-#   number_of_seat_available = capacity - total_booking
-#   capacity > total_booking
-# end
-
-
+  private
+  def booking_params
+    params.permit(:schedule_id)
+  end
 end

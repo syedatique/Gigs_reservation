@@ -1,22 +1,22 @@
-<%= form_for(@gig) do |f| %>
-
-  <div style="width: 500px">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
+<div class="container">
+  <%= form_for(@gig) do |f| %>
 
   <div class="field">
-    <%= f.label :gig_image %><br />
-    <%= f.file_field :gig_image %>
-  </div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div><br>
 
-  <div style="width: 500px">
+  <div class="field">
+    <%= f.label :gig_image %>
+    <%= f.file_field :gig_image %>
+  </div><br>
+
+  <div class="field">
     <%= f.label :description %>
     <%= f.text_area :description %>
-  </div>
+  </div><br>
 
-  <div style="width: 500px">
+  <div class="field">
     <%= f.label :genre_id %>
     <%= f.select("genre_id", Genre.all.map {|c| [c.name, c.id]}, {prompt: 'Select Genre'}, html_options = {}) %>
   </div>
@@ -25,4 +25,7 @@
   <div class="actions">
     <%= f.submit %>
   </div>
-<% end %>
+  <% end %>
+
+
+</div>

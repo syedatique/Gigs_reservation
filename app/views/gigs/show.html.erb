@@ -1,32 +1,27 @@
-<div class="mid_tab">
-  <li>
-    <strong>Gigs Name:</strong>
-    <%= @gig.name %>
-  </li>
+<div class="listing-all">
+  <p><strong>Gig Name:</strong><%= @gig.name %></p>
 
-  <li>
-    <strong>Image:</strong>
-    <%= link_to image_tag(@gig.gig_image.medium.url) %>
-  </li>
+  <p><strong></strong><%= link_to image_tag(@gig.gig_image.medium.url) %>
+  </p>
 
-  <li>
-    <strong>Genre:</strong>
-    <%= @gig.name %> is in Genre: <%= @gig.genre.try(:name) %> <%#= Genre.find(@gig.genre_id).name%>
-  </li>
+  <p><strong>Genre:<%= @gig.genre.try(:name) %></p>
 
-  <li>
-    <strong>Description:</strong>
-    <%= @gig.description %>
-  </li>
+  <p><strong>Description:</strong><%= @gig.description %></p>
 
-  <li>
+  <p>
     <strong>Schedules and Venues: </strong><br>
     <% @schedules.each do |schedule| %>
     <%= schedule.human_readable_date %>
     <%= schedule.venue.try(:name) %><br>
     <% end %>
-  </li>
+  </p>
 
-  <strong><%= link_to 'Edit', edit_gig_path(@gig) %></strong>
-  <strong><%= link_to 'Back', gigs_path %></strong>
+  <div class="menu">
+    <ul>
+    <li><strong><%= link_to 'Edit', edit_gig_path(@gig) if can? :manage, Gig  %></strong></li>
+    <li><strong><%= link_to 'Back', gigs_path %></strong></li>
+    </ul>
+
+  </div>
+
 </div>

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   
-  # resources :homes, only: [:index]
   root to: 'home#index'
   devise_for :users
   resources :venues
@@ -9,6 +8,7 @@ Rails.application.routes.draw do
   resources :schedules do 
     resources :bookings
   end
+  
   resources :genres
 
 

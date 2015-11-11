@@ -1,9 +1,7 @@
 class GigsController < ApplicationController
 
-  load_and_authorize_resource 
-  # :except => [:index, :show]
+  load_and_authorize_resource
 
-  #make the gig_controller require authentication...
   before_action :authenticate_user!
 
   before_action :set_gig, only: [:show, :edit, :update, :destroy]

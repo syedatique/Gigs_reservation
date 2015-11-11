@@ -1,19 +1,17 @@
 <br>
-<br>
-<div>
-<li><strong>Gig: </strong><%= @schedule.gig.try(:name) %></li><br>
+<div class="listing-all">
+  <p><strong>Gig: </strong><%= @schedule.gig.try(:name) %></p>
 
-<li><strong>Venue: </strong><%= @schedule.venue.try(:name) %></li><br>
+  <p><strong>Venue: </strong><%= @schedule.venue.try(:name) %></p>
 
-<li><strong>Schedule: </strong><%= @schedule.human_readable_date %></li><br>
-<br>
+  <p><strong>Schedule: </strong><%= @schedule.human_readable_date %></p>
+  <br>
 
-<div>
-  <strong><%#= link_to 'Edit', edit_schedule_path(@schedule) %></strong>
-  <strong><%= link_to 'Back', schedules_path %></strong>
+  <div class="menu">
+    <ul>
+      <li><strong><%= link_to 'Back', schedules_path %></strong></li>
+      <li><strong><%= link_to 'Book This', new_schedule_booking_path(@schedule) %></strong></li>
+    </ul>
+  </div>
 
-  <strong><%= link_to 'Book This', new_schedule_booking_path(@schedule) %></strong>
-</div>
-
-  
 </div>

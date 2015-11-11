@@ -1,18 +1,18 @@
-<nav>
-<h1><%= link_to 'New Schedule', new_schedule_path %></h1>
-</nav>
+<div class="add-link-option"><h1><%= link_to 'New Schedule', new_schedule_path if can? :manage, Schedule%></h1></div>
 
-<!-- <p id="notice"><%#= notice %></p> -->
-<h1>Listing Schedules</h1>
+
+<div class="listing"><h1>Listing Schedules</h1></div>
 
 <%= render @schedules %>
 
+<div class="listing-all">
+  <h2>Your bookings</h2>
 
-<h2>Your bookings</h2>
-
-<% @bookings.each do |b| %>
-  <h4><%= b.schedule.gig.name %></h4>
-  <b><%= b.schedule.human_readable_date %></b>
+  <% @bookings.each do |b| %>
+  <p><%= b.schedule.gig.name %></p>
+  <p><%= b.schedule.human_readable_date %></p>
   <%= link_to "Show Booking", schedule_booking_path(b.schedule_id, b.id) %>
-  <%#= link_to "Delete Booking", schedule_booking_path(b.schedule_id, b.id), method: :delete %>
-<% end %>
+  <% end %>
+
+</div>
+  

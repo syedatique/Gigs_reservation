@@ -1,14 +1,19 @@
-<nav style="padding: 20px;">
-  <p><strong>Venue Name: </strong><%= venue.name%></p>
+<div class="container">
+  <div class="listing-all">
+    <nav style="padding: 20px;">
+      <p><strong>Venue Name: </strong><%= venue.name%></p>
 
-  <p><strong>Venue Address: </strong><%= venue.address%></p>
+      <p><strong>Venue Address: </strong><%= venue.address%></p>
 
-  <p><strong>Venue Seat Number: </strong><%= venue.seat%></p>
-  
-<ul>
-  <li><%= button_to('Show', venue, method: :get)%></li>
-  <li><%= button_to('Edit', edit_venue_path(venue), method: :get) if can? :manage, Venue %></li>
-  <li><%= button_to('Delete venue', venue_path(venue), method: :delete) if can? :delete, Venue %></li>
-</ul>
- 
-</nav>
+      <p><strong>Venue Seat Capacity: </strong><%= venue.seat%></p>
+
+      <ul style="transform: skewX(-25deg)">
+        <li><%= button_to('Show', venue, method: :get)%></li>
+        <li><%= button_to('Edit', edit_venue_path(venue), method: :get) if can? :manage, Venue %></li>
+        <li><%= button_to('Delete venue', venue_path(venue), method: :delete) if can? :delete, Venue %></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+

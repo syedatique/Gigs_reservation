@@ -11,7 +11,6 @@ class SchedulesController < ApplicationController
   end
 
   def show
-    
   end
 
   def new
@@ -36,7 +35,6 @@ class SchedulesController < ApplicationController
     else
       redirect_to root_path, alert: "Venue has already been booked" 
     end
-
   end
 
 

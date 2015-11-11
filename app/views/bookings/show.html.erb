@@ -1,19 +1,15 @@
-<div>
-<br>
-<br>
-<strong>User:</strong><%= @booking.user.try(:email) %><br>
+<div class="listing-all">
+  <br>
+  <br>
+  <p><strong>User:</strong><%= @booking.user.try(:email) %></p><br>
 
-<strong>Gig:</strong><%= @booking.schedule.gig.try(:name) %><br>
+  <p><strong>Gig:</strong><%= @booking.schedule.gig.try(:name) %></p><br>
 
-<strong>Venue:</strong><%= @booking.schedule.venue.try(:name) %><br>
+  <p><strong>Venue:</strong><%= @booking.schedule.venue.try(:name) %></p><br>
 
-<strong>Schedule:</strong><%= @booking.schedule.human_readable_date %>
-<br>
+  <p><strong>Schedule:</strong><%= @booking.schedule.human_readable_date %></p>
+  <br>
 
-<div>
-  <%= link_to 'Back', schedules_path %>
-</div>
-<%#= link_to "Delete Booking", schedule_booking_path(@booking.schedule_id, @booking.id), method: :delete %>
+  <div class="menu"><li><%= link_to 'Back', schedules_path %></li></div>
 
-  
 </div>

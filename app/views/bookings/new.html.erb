@@ -1,23 +1,19 @@
-<div>
-  <p><strong>Important Information: </strong>Number of Tickets Limited to FIVE only. </p>
-
+<div class="container">
+  <p><h2 style="color: green; text-decoration: underline;"><strong>Important Information: </strong>Number of Tickets Limited to FIVE only. </h2></p>
 </div>
-
-
-
-<div>
+<div class="container">
 <br>
-  <p><strong>Gig Name: </strong><%= @schedule.gig.name %></p>
-  <p><strong>Venue Name: </strong><%= @schedule.venue.name %></p>
-  <p><strong>Show Time: </strong><%= @schedule.human_readable_date %></p>
-  <p><strong>Capacity: </strong><%= @schedule.venue.seat %></p>
-  <p><strong>Ticket Price: </strong>FREE !!</p>
+  <p><b>Gig Name: </b><%= @schedule.gig.name %></p>
+  <p><b>Venue Name: </b><%= @schedule.venue.name %></p>
+  <p><b>Show Time: </b><%= @schedule.human_readable_date %></p>
+  <p><b>Capacity: </b><%= @schedule.venue.seat %></p>
+  <p><b>Ticket Price: </b>FREE !!</p>
 
-  <p><strong>Tickets Available: </strong><%=  @schedule.number_of_seat_available %></p>
+  <p><b>Tickets Available: </b><%=  @schedule.number_of_seat_available %></p>
   <br>
   <br>
   <%= form_for([@schedule, @booking]) do |f| %>
-    <strong><%= label_tag 'How many tickets : ' %></strong>
+    <b><%= label_tag 'How many tickets : ' %></b>
     <%= number_field 'amount', :amount %>
     <%= f.submit "Book Tickets" %>
   <% end %>

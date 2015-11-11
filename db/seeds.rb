@@ -48,6 +48,3 @@ User.create!(email: "rick@rick.com", password: "password", role: 'user')
 User.create!(email: "sandy@sandy.com", password: "password", role: 'user')
 User.create!(email: "tony@tony.com", password: "password", role: 'user')
 User.create!(email: "syed@syed.com", password: "abcd1234", role: 'admin')
-
-
-

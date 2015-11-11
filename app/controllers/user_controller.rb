@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    # @booking = Booking.where(user_id: current_user)
   end
 
   def new

@@ -1,6 +1,8 @@
-<div>
-  <h2><strong><%= link_to 'Add New Gig', new_gig_path %></strong></h2>
+<div class="listing"> <h1>Listing Gigs</h1> </div>
+
+<div class="add-link-option">
+  <%= link_to 'Add New Gig', new_gig_path if can? :manage, Gig%>
 </div>
-<h1>Listing Gigs</h1>
+
 
 <%= render @gigs %>

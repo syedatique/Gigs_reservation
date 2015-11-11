@@ -9,19 +9,20 @@
 <body>
 
   <div class="container">
+
     <div class="title text-center">
       <h1>Gigs Festival Reservation App</h1>
     </div>
     <div class="menu">
       <ul>
-        <li> <%= link_to 'HOME', root_path %> </li>
+        <li> <%= link_to 'Home', root_path %> </li>
         <li><%= link_to "All Gigs", gigs_path %></li>
         <li> <%= link_to "All Venues", venues_path %>  </li>
         <li><%= link_to "All Schedules", schedules_path %></li>
       </ul>
     </div>
     
-    <div class="content">
+    <div class="container">
       <div class="notice">
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
@@ -31,42 +32,28 @@
     </div>
   </div>
 
-  <div class="wrapper">
-    <header>
-      <div class="header">
-
-        <div class='login'>
-          <% if current_user %>
-          <li><p>Welcome back <%= current_user.email %></p></li><br>
-          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-          <li><% else %></li><br>
-          <li><%= link_to "Sign In", new_user_session_path %></li>
-          <li><%= link_to "Register", new_user_registration_path %></li>
-          <li><% end %></li>
-        </div>
-
-
-
-
-
-
+  <header>
+    <div class="header">
+      <div class='login'>
+        <% if current_user %>
+        <li><p>Welcome back <%= current_user.email %></p></li><br>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+        <li><% else %></li>
+        <li><%= link_to "Sign In", new_user_session_path %></li>
+        <li><%= link_to "Register", new_user_registration_path %></li>
+        <li><% end %></li>
       </div>
-    </header>
-    <!-- End of header -->
+    </div>
+  </header>
+  <!-- End of header -->
 
+  
+  <%= yield %>
 
-
-
-
-
-    <%= yield %>
-
-    <div class="push"></div>
-
-    <div class="footer">
-      <li><pre><strong>Copyright (c) 2015!       </strong></pre></li>
-      <li><pre><strong>Created by: </strong>Syed Atique     </pre></li>
-      <li><pre><strong>Contact: </strong><a href="mailto:syed@syed.com">syed@syed.com</a></pre> <li><pre>      </pre></li></li>
+  <div id="footer">
+    <li><pre><strong>Copyright (c) 2015!    </strong></pre><li>
+      <li><pre><strong>Created by: </strong>Syed Atique    </pre></li>
+      <li><pre><strong>Contact: +44(0)420007420 </strong><a href="mailto:syed@syed.com">syed@syed.com</a></pre> <li><pre>   </pre></li></li>
       <li><p> <%= social_share_button_tag("My Site") %></p></li>
       
     </div>

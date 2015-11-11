@@ -1,22 +1,25 @@
 <br>
-<h2> Congratulation!</h2>
-<p> Your booking confirmation has been sent to your email.</p>
-<p> You need to show the email copy during admission.</p>
-<br>
-<h1>Listing Booking</h1>
-<br>
-<% if current_user.role == 'admin' %>
+<div class="container">
+  <h2> Congratulation!</h2>
+  <p> Your booking confirmation has been sent to your email.</p>
+  <p> You need to show the email copy during admission.</p>
+</div>
+
+<div class="listing-all">
+  <h1>Listing Booking</h1>
+  <br>
+  <% if current_user.role == 'admin' %>
   <% @bookings.each do |booking| %>
-    <p><strong>Gig Name:</strong><%= booking.schedule.gig.try(:name) %></p>
-    <p><strong> Venue Name: </strong> <%= booking.schedule.venue.try(:name) %></p>
-    <p>Schedule: <strong><%= booking.schedule.human_readable_date %></strong></p>
-    <p>Tickets: <strong><%= Booking.how_many_tickets(params[:schedule_id], current_user.id) %></strong></p>
-    <% end %>
-<% else %>
-  <p><strong>Gig Name:</strong><%= @booking.schedule.gig.try(:name) %></p>
-  <p><strong> Venue Name: </strong> <%= @booking.schedule.venue.try(:name) %></p>
-  <p>Schedule: <strong><%= @booking.schedule.human_readable_date %></strong></p>
-  <p>Tickets: <strong><%= Booking.how_many_tickets(params[:schedule_id], current_user.id) %></strong></p>
+  <p><b>Gig Name:</b><%= booking.schedule.gig.try(:name) %></p>
+  <p><b> Venue Name: </b> <%= booking.schedule.venue.try(:name) %></p>
+  <p>Schedule: <b><%= booking.schedule.human_readable_date %></b></p>
+  <p>Tickets: <b><%= Booking.how_many_tickets(params[:schedule_id], current_user.id) %></b></p>
+  <% end %>
+  <% else %>
+  <p><b>Gig Name:</b><%= @booking.schedule.gig.try(:name) %></p>
+  <p><b> Venue Name: </b> <%= @booking.schedule.venue.try(:name) %></p>
+  <p>Schedule: <b><%= @booking.schedule.human_readable_date %></b></p>
+  <p>Tickets: <b><%= Booking.how_many_tickets(params[:schedule_id], current_user.id) %></b></p>
 
-<% end %>
-
+  <% end %>
+</div>

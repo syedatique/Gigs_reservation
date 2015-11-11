@@ -7,29 +7,71 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="wrapper">
-  <header>
-  <h1 style="text-align:center; color:red; font-size: 40px">Gigs Festival Reservation App</h1>
-  </header>
 
-  <div><h2><%= link_to 'HOME', root_path %></h2></div>
+  <div class="container">
+    <div class="title text-center">
+      <h1>Gigs Festival Reservation App</h1>
+    </div>
+    <div class="menu">
+      <ul>
+        <li> <%= link_to 'HOME', root_path %> </li>
+        <li><%= link_to "All Gigs", gigs_path %></li>
+        <li> <%= link_to "All Venues", venues_path %>  </li>
+        <li><%= link_to "All Schedules", schedules_path %></li>
+      </ul>
+    </div>
+    
+    <div class="content">
+      <div class="notice">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
+
+      <%= render partial: "layouts/menu"%>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <header>
+      <div class="header">
+
+        <div class='login'>
+          <% if current_user %>
+          <li><p>Welcome back <%= current_user.email %></p></li><br>
+          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+          <li><% else %></li><br>
+          <li><%= link_to "Sign In", new_user_session_path %></li>
+          <li><%= link_to "Register", new_user_registration_path %></li>
+          <li><% end %></li>
+        </div>
 
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
 
-  <%= render partial: "layouts/menu"%>
 
-  <%= yield %>
+
+
+      </div>
+    </header>
+    <!-- End of header -->
+
+
+
+
+
+
+    <%= yield %>
 
     <div class="push"></div>
-</div>
-<div class="footer">
-  
-    <li><p>Copyright (c) 2015!</p></li>
-  <li><p>Created by: Syed Atique</p></li><li><p>Contact information: <a href="mailto:syed@syed.com">syed@syed.com</a>.</p></li>
-  <li><p><%= social_share_button_tag("My Site") %></p></li>
- 
+
+    <div class="footer">
+      <li><pre><strong>Copyright (c) 2015!       </strong></pre></li>
+      <li><pre><strong>Created by: </strong>Syed Atique     </pre></li>
+      <li><pre><strong>Contact: </strong><a href="mailto:syed@syed.com">syed@syed.com</a></pre> <li><pre>      </pre></li></li>
+      <li><p> <%= social_share_button_tag("My Site") %></p></li>
+      
+    </div>
+
   </div>
+
 </body>
 </html>

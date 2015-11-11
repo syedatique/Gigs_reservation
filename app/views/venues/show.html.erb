@@ -1,26 +1,27 @@
-<!-- <p id="notice"><%= notice %></p> -->
-<p>
-  <strong>Venue Name:</strong>
-  <%= @venue.name %>
-</p>
+<div class="container text-center border-primary">
+  <p>
+    <strong>Venue Name:</strong>
+    <%= @venue.name %>
+  </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @venue.address %>
-</p>
+  <p>
+    <strong>Address:</strong>
+    <%= @venue.address %>
+  </p>
 
-<p>
-  <strong>Seat Number:</strong>
-  <%= @venue.seat %>
-</p>
+  <p>
+    <strong>Seat Number:</strong>
+    <%= @venue.seat %>
+  </p>
 
-<p>
-<strong>Schedules and Gigs: </strong><br>
-  <% @venue.schedules.each do |schedule| %>
-  <%= schedule.schedule %>
-  <%= schedule.gig.try(:name) %><br>
-  <% end %>
-</p>
+  <p>
+  <strong>Schedules and Gigs: </strong><br>
+    <% @venue.schedules.each do |schedule| %>
+    <%= schedule.schedule %>
+    <%= schedule.gig.try(:name) %><br>
+    <% end %>
+  </p>
 
-<strong><%= link_to 'Edit', edit_venue_path(@venue) %></strong>
-<strong><%= link_to 'Back', venues_path %></strong>
+  <strong><%= link_to 'Edit', edit_venue_path(@venue) %></strong>
+  <strong><%= link_to 'Back', venues_path %></strong>
+</div>

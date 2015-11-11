@@ -1,7 +1,7 @@
 <nav style="padding: 20px;">
   <p><strong>Gig Name:</strong><%= schedule.gig.try(:name) %></p>
   <p><strong> Venue Name: </strong> <%= schedule.venue.try(:name) %></p>
-  <p>Schedule: <strong><%= schedule.human_readable_date %></strong></p>
+  <p><strong>Schedule: </strong><%= schedule.human_readable_date %></p>
   
   <ul>
   <li><%= button_to('Show', schedule_path(schedule), method: :get)%></li>

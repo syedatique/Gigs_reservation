@@ -18,7 +18,8 @@ class GigsController < ApplicationController
   end
 
   def show
-    # @bookings = @gig.bookings
+    @gig = Gig.find(params[:id])
+    @schedules = Schedule.where(gig_id: params[:id])
   end
 
   def new

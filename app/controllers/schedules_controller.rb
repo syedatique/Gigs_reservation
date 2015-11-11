@@ -16,7 +16,6 @@ class SchedulesController < ApplicationController
 
   def new
     @schedule = Schedule.new
-    # @user = User.new
   end
 
   def edit
@@ -24,16 +23,20 @@ class SchedulesController < ApplicationController
 
   def create
     @schedule = Schedule.new(schedule_params)
-
-    respond_to do |format|
-      if @schedule.save
-        format.html { redirect_to @schedule, notice: 'Schedule was successfully created.' }
-        format.json { render :show, status: :created, location: @schedule }
-      else
-        format.html { render :new }
-        format.json { render json: @schedule.errors, status: :unprocessable_entity }
+    if @schedule.schedule_exist_at_venue?(@schedule.venue_id)
+      respond_to do |format|
+        if @schedule.save
+          format.html { redirect_to @schedule, notice: 'Schedule was successfully created.' }
+          format.json { render :show, status: :created, location: @schedule }
+        else
+          format.html { render :new }
+          format.json { render json: @schedule.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to root_path, alert: "Venue has already been booked" 
     end
+
   end
 
 

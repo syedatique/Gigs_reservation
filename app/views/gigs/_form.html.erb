@@ -22,11 +22,6 @@
   </div>
   <br>
 
- <p>Choose Venues:</p>
-  <div >
-    <%= collection_check_boxes(:gig, :venue_ids, Venue.all, :id, :name) %>
-  </div>
-
   <div class="actions">
     <%= f.submit %>
   </div>

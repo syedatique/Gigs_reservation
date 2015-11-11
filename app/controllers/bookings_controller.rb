@@ -1,8 +1,5 @@
 class BookingsController < ApplicationController
 
-  # load_and_authorize_resource 
-  # before_action :authenticate_user!
-
   def index
     if current_user.role == 'admin'
       @bookings = Booking.all
@@ -22,15 +19,16 @@ class BookingsController < ApplicationController
   end
 
   def create
-    # binding.pry
     tickets_amount = params[:amount][:amount].to_i
-    if seat_availability
+    schedule = Schedule.find(params[:schedule_id])
+  # Seat must be available to allocate, ALSO user is limited to buy Max 5 Tickets
+    if schedule.seat_availability && tickets_amount < 6
       tickets_amount.times do 
         @booking = Booking.create(booking_params.merge(user_id: current_user.id))
       end
       redirect_to schedule_bookings_path(params[:schedule_id])
     else
-      redirect_to schedules_path, alert: "No seat available!!"
+      redirect_to schedules_path, alert: "Can't Process your order; No seat available or You have exceed your Ticket Limit (Limited to 5 for each user)!!"
     end
   end
 
@@ -48,12 +46,13 @@ def booking_params
   params.permit(:schedule_id)
 end
 
-def seat_availability
-  @schedule = Schedule.find(params[:schedule_id])
-  capacity = @schedule.venue.seat
-  total_booking = Booking.where(schedule_id: @schedule.id).count
-  capacity > total_booking
-end
+# def seat_availability
+#   @schedule = Schedule.find(params[:schedule_id])
+#   capacity = @schedule.venue.seat
+#   total_booking = Booking.where(schedule_id: @schedule.id).count
+#   number_of_seat_available = capacity - total_booking
+#   capacity > total_booking
+# end
 
 
 end

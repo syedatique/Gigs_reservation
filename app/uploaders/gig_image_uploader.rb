@@ -7,7 +7,7 @@ class GigImageUploader < CarrierWave::Uploader::Base
     end
 
     version :medium do
-      process :resize_to_fit => [200, 200]
+      process :resize_to_fit => [350, 350]
     end
 
   # Choose what kind of storage to use for this uploader:

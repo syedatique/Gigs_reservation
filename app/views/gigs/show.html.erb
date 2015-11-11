@@ -1,32 +1,32 @@
-<!-- <p id="notice"><%= notice %></p> -->
-<p>
-  <strong>Gigs Name:</strong>
-  <%= @gig.name %>
-</p>
+<div class="mid_tab">
+  <li>
+    <strong>Gigs Name:</strong>
+    <%= @gig.name %>
+  </li>
 
-<p>
-  <strong>Image:</strong>
-  <%= link_to image_tag(@gig.gig_image.medium.url) %>
-</p>
+  <li>
+    <strong>Image:</strong>
+    <%= link_to image_tag(@gig.gig_image.medium.url) %>
+  </li>
 
-<p>
-  <strong>Genre:</strong>
-  <%= @gig.name %> is in Genre: <%= @gig.genre.try(:name) %> <%#= Genre.find(@gig.genre_id).name%>
-  
-</p>
+  <li>
+    <strong>Genre:</strong>
+    <%= @gig.name %> is in Genre: <%= @gig.genre.try(:name) %> <%#= Genre.find(@gig.genre_id).name%>
+  </li>
 
-<p>
-  <strong>Description:</strong>
-  <%= @gig.description %>
-</p>
+  <li>
+    <strong>Description:</strong>
+    <%= @gig.description %>
+  </li>
 
-<p>
-<strong>Schedules and Venues: </strong><br>
-  <% @gig.schedules.each do |schedule| %>
-  <%= schedule.human_readable_date %>
-  <%= schedule.venue.try(:name) %><br>
-  <% end %>
-</p>
+  <li>
+    <strong>Schedules and Venues: </strong><br>
+    <% @schedules.each do |schedule| %>
+    <%= schedule.human_readable_date %>
+    <%= schedule.venue.try(:name) %><br>
+    <% end %>
+  </li>
 
-<strong><%= link_to 'Edit', edit_gig_path(@gig) %></strong>
-<strong><%= link_to 'Back', gigs_path %></strong>
+  <strong><%= link_to 'Edit', edit_gig_path(@gig) %></strong>
+  <strong><%= link_to 'Back', gigs_path %></strong>
+</div>

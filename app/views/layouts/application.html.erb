@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>GigsApp</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
-
-  <div class="container">
-
-    <div class="title text-center">
+<div id="wrapper">
+  <div id="header">
+    <div class="title text-center ">
       <h1>Festival Gigs Reservation App</h1>
     </div>
+  </div>
+  
+  <div id="content">
     <nav class="menu">
       <ul>
         <li> <%= link_to 'Home', root_path %> </li>
@@ -27,42 +30,38 @@
         </li>
       </ul>
     </nav>
-    
+
     <div class="container">
       <div class="notice">
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
       </div>
     </div>
-  </div>
 
-  <header>
-    <div class="header">
-      <div class='login'>
+    <div class='login'>
+      <ul>
         <% if current_user %>
-        <li><p>Welcome back <%= current_user.email %></p></li><br>
+        <li>Welcome back <%= current_user.email %></li><li>&emsp;</li> 
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
         <li><% else %></li>
         <li><%= link_to "Sign In", new_user_session_path %></li>
+        <li>&emsp;</li>
         <li><%= link_to "Register", new_user_registration_path %></li>
         <li><% end %></li>
-      </div>
+      </ul>
     </div>
-  </header>
-  <!-- End of header -->
 
-  <div style="padding-bottom: 30px">
-    <%= yield %>
+    <div style="padding-bottom: 30px">
+      <%= yield %>
+    </div>
+
   </div>
   
-
-  <footer class='footer'>
-    Copyright (c) 2015!
-      <strong>Created by: </strong>
-      <strong>Syed Atique</strong>
-      <strong>Contact: +44(0)420007420</strong>
-      <a href="mailto:syed@syed.com">syed@syed.com</a>    
-  </footer> 
+  <div id="footer">
+      <p>Copyright (c) 2015! &emsp; &emsp; Created by: Syed Atique &emsp; &emsp;Contact: +44(0)420007420 &emsp; &emsp;
+      <a href="mailto:syed@syed.com">syed@syed.com</a></p>    
+  </div>
+</div>
 
 </body>
 </html>

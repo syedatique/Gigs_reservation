@@ -1,7 +1,6 @@
-<div class="add-link-option"><h1><%= link_to 'New Schedule', new_schedule_path if can? :manage, Schedule%></h1></div>
-
-
-<div class="listing"><h1>Listing Schedules</h1></div>
+<div class="add-link-option">
+  <%= link_to 'New Schedule', new_schedule_path if can? :manage, Schedule%>
+</div>
 
 <%= render @schedules %>
 
@@ -12,7 +11,7 @@
   <% @bookings.each do |b| %>
   <p><%= b.schedule.gig.name %></p>
   <p><%= b.schedule.human_readable_date %></p>
-  <%= link_to "Show Booking", schedule_booking_path(b.schedule_id, b.id) %>
+  <p><%= link_to "Show Booking", schedule_booking_path(b.schedule_id, b.id) %></p><br>
   <% end %>
 <% end %>
 

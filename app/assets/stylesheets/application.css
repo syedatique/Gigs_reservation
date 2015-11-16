@@ -38,11 +38,11 @@
   }
 /*Image box end*/
 
- body {
-    color: white;
+/* body {
+    color: green;
     text-align: justify;
     padding-bottom: 30px;
-}
+}*/
 
 .text-center {
     text-align: center;
@@ -55,21 +55,21 @@
 }
 
 .add-link-option {
-    font-size: 200%;
+    font-size: 150%;
     text-align: left;
-    padding-right: 20px;
+    padding: 20px;
     margin: auto;
     width: 100%;
 }
 
 .add-link-option a {
-    color: aqua;
+    color: green;
 }
 
 .listing {
-    width: 50%;
+    /*width: 50%;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto;*/
     font-size: 120%;
     font-weight: bold;
     color: aqua;
@@ -84,12 +84,21 @@
     /*border: 1px solid #6B1229;*/
 }
 .listing-all p {
-    width: 60%;
-    /*margin-right: auto;*/
-    /*margin-left: auto;*/
-    color: #DFFF00;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    color: black;
     font-size: 120%;
     text-align: center;
+}
+.listing li{
+  display: inline-block;
+}
+.listing nav{
+  text-align: center;
+}
+.listing ul{
+
 }
 
 .menu {
@@ -131,28 +140,27 @@
 
 html { 
   /*background: url("https://i.ytimg.com/vi/doVoWENl7Yg/maxresdefault.jpg") no-repeat center center fixed; */
-  background: url("http://i.ytimg.com/vi/ck4vXjKMIxg/maxresdefault.jpg") no-repeat center center fixed; 
-  -webkit-background-size: cover;
+  /*background: url("http://i.ytimg.com/vi/ck4vXjKMIxg/maxresdefault.jpg") no-repeat center center fixed; */
+  /*-webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover;*/
+  height: 100%;
+  min-height: 100%;
+  margin-right: 3%;
+  margin-left: 3%;
 }
 
 .footer {
-    position: fixed;
-    bottom: 10px;
-    /*top: 10px;*/
-    width: 100%;
-    height: 40px;
-    /*margin-left: auto;*/
-    /*margin-right: auto;*/
-    background-color: black;
-    text-align: center;
-    padding-top: 5px;
-}
-.social-share-button {
-  right: 10px;
-  float: right;
+  position: fixed;
+  bottom: 10px;
+  top: 10px;
+  width: 60%;
+/*  margin-right: auto;
+  margin-left: auto;*/
+  height: 40px;
+  background-color: black;
+  text-align: center;
   padding-top: 5px;
 }
 
@@ -163,26 +171,31 @@ img {
 }
 
 .login {
- float: left;
- width: 100%;
- font-size: 24px;
+  display: inline-block;
+  padding-left: 5px;
+ float: right;
+ /*width: 100%;*/
+ font-size: 18px;
  color: #00FF18;
+ margin-right: 15px;
 }
 
 .login a {
-   color: aqua;
+   color: green;
+   float: right;
 }
 
 .title h1 {
-    color: aqua;
+    color: green;
     font-size: 250%;
     font-family: Copperplate / Copperplate Gothic Light, sans-serif;
     text-transform: uppercase;
-    text-shadow: white -5px -10px 0.5em;
+    text-shadow: #d9534f -5px -5px 0.9em;
 }
 
 .notice {
     font-size: 150%;
     font-weight: bold;
     color: green;
+    text-align: center;
 }

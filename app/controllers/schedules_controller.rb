@@ -6,8 +6,14 @@ class SchedulesController < ApplicationController
   before_action :set_schedule, only: [:show, :edit, :update, :destroy]
 
   def index
-    @schedules = Schedule.all
-    @bookings = Booking.where(user_id: current_user.id)
+    if params[:name]
+      @schedule = Schedule.new
+      @schedules = @schedule.search_result("#{params[:name]}")
+      # binding.pry
+    else
+      @schedules = Schedule.all
+      @bookings = Booking.where(user_id: current_user.id)
+    end
   end
 
   def show
@@ -57,6 +63,7 @@ class SchedulesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
   def set_schedule

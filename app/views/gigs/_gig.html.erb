@@ -1,17 +1,18 @@
-<div class="container">
-  <br>
+<div style="transform: skewX(-15deg)" class="container avatarBox .text_center">
+
   <div class="listing-all">
 
     <p><strong>Gig Name: </strong><%= gig.name%></p>
 
     <p><strong>Genre: </strong> <%= gig.genre.try :name %></p>
 
-    <p><strong> </strong><%= image_tag gig.gig_image.medium.url %></p>
-
-    <ul style="transform: skewX(-25deg)">
+    <!-- <div class="avatarBox"> -->
+    <p><%= image_tag gig.gig_image.medium.url %></p>
+      <!-- </div> -->
+    <p>
       <li><%= button_to('Show', gig, method: :get)%></li>
       <li><%= button_to('Edit', edit_gig_path(gig), method: :get) if can? :manage, Gig %></li>
       <li><%= button_to('Delete gig', gig_path(gig), method: :delete, data:{confirm: 'Delete the gig? Are you sure?'}) if can? :delete, Gig %></li>
-    </ul>
+    </p>
   </div>
 </div>

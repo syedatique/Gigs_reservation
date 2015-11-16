@@ -11,14 +11,37 @@
  * file per style scope.
  *
  *= require_tree .
- *=require social-share-button
+ *require social-share-button
  *= require_self
  */
 
+/*IMage box*/
+ .avatarBox {
+   border: 1px solid #DDD;
+   width: auto;
+   height: auto;
+   -webkit-border-radius: 5%; /* Can also be 55px */
+   -moz-border-radius: 5%;
+   border-radius: 5%;
+  }
+
+ .avatarBox img {
+   /*object-fit: cover;*/
+   background-size: cover;
+   margin: 5px;
+   -webkit-border-radius: 5%; /* Can also be 50px */
+   -moz-border-radius: 5%;
+   border-radius: 5%;
+  }
+  .avatarBox img:hover {
+    opacity: 0.8;
+  }
+/*Image box end*/
 
  body {
     color: white;
     text-align: justify;
+    padding-bottom: 30px;
 }
 
 .text-center {
@@ -26,7 +49,7 @@
 }
 
 .container {
-    width: 70%;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -44,7 +67,7 @@
 }
 
 .listing {
-    width: 70%;
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
     font-size: 120%;
@@ -53,7 +76,7 @@
 }
 
 .listing-all {
-    width: 70%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
     /*margin-right: auto;*/
@@ -61,30 +84,32 @@
     /*border: 1px solid #6B1229;*/
 }
 .listing-all p {
-    width: 70%;
-    margin-right: auto;
-    margin-left: auto;
+    width: 60%;
+    /*margin-right: auto;*/
+    /*margin-left: auto;*/
     color: #DFFF00;
     font-size: 120%;
+    text-align: center;
 }
 
 .menu {
     background-color: #00FF14;
     height: 40px;
     background-color: rgba(255,255,255,0.5);
-    width: 70%;
-    margin-right: auto;
-    margin-left: auto;
+    width: 100%;
+   /* margin-right: auto;
+    margin-left: auto;*/
+    text-align: center;
 }
 
 .menu ul li a {
-    line-height: 40px;
+    /*line-height: 40px;*/
     list-style-type: lower-alpha;
     margin-right: 40px;
     /*margin-left: 40px;*/
     font-size: x-large;
     text-decoration: none;
-    margin-left: inherit;
+    /*margin-left: inherit;*/
 }
 
 .inline-block {
@@ -113,14 +138,22 @@ html {
   background-size: cover;
 }
 
-#footer {
-    position: relative;
+.footer {
+    position: fixed;
     bottom: 10px;
-    top: 10px;
-    /*width: 100%;*/
-    height: 20px;
-    margin-left: auto;
-    margin-right: auto;
+    /*top: 10px;*/
+    width: 100%;
+    height: 40px;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    background-color: black;
+    text-align: center;
+    padding-top: 5px;
+}
+.social-share-button {
+  right: 10px;
+  float: right;
+  padding-top: 5px;
 }
 
 li{ float:left; display:inline-block; margin-right: 4px;}

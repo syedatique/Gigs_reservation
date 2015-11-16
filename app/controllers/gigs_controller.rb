@@ -7,6 +7,8 @@ class GigsController < ApplicationController
   before_action :set_gig, only: [:show, :edit, :update, :destroy]
 
 
+
+
   def index
     if params[:name]
       @gigs = Gig.where("name like ?", "%#{params[:name]}%")
@@ -59,6 +61,7 @@ class GigsController < ApplicationController
       format.html { redirect_to gigs_url, notice: 'Gig was successfully destroyed.' }
     end
   end
+
 
   private
   def set_gig

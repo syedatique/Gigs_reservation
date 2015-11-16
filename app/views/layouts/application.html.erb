@@ -13,22 +13,26 @@
     <div class="title text-center">
       <h1>Festival Gigs Reservation App</h1>
     </div>
-    <div class="menu">
+    <nav class="menu">
       <ul>
         <li> <%= link_to 'Home', root_path %> </li>
         <li><%= link_to "All Gigs", gigs_path %></li>
         <li> <%= link_to "All Venues", venues_path %>  </li>
         <li><%= link_to "All Schedules", schedules_path %></li>
+        <li style="padding-top: 5px;">
+          <%= form_tag(schedules_path, method: "get", class: ' float-left') do %>
+          <%= text_field_tag(:name) %>
+          <%= submit_tag("Search Gigs") %>
+          <% end %>
+        </li>
       </ul>
-    </div>
+    </nav>
     
     <div class="container">
       <div class="notice">
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
       </div>
-
-      <%= render partial: "layouts/menu"%>
     </div>
   </div>
 
@@ -47,18 +51,18 @@
   </header>
   <!-- End of header -->
 
-  
-  <%= yield %>
-
-  <div id="footer">
-    <li><pre><strong>Copyright (c) 2015!    </strong></pre><li>
-      <li><pre><strong>Created by: </strong>Syed Atique    </pre></li>
-      <li><pre><strong>Contact: +44(0)420007420 </strong><a href="mailto:syed@syed.com">syed@syed.com</a></pre> <li><pre>   </pre></li></li>
-      <li><p> <%= social_share_button_tag("My Site") %></p></li>
-      
-    </div>
-
+  <div style="padding-bottom: 30px">
+    <%= yield %>
   </div>
+  
+
+  <footer class='footer'>
+    Copyright (c) 2015!
+      <strong>Created by: </strong>
+      <strong>Syed Atique</strong>
+      <strong>Contact: +44(0)420007420</strong>
+      <a href="mailto:syed@syed.com">syed@syed.com</a>    
+  </footer> 
 
 </body>
 </html>

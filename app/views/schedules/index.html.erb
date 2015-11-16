@@ -5,6 +5,7 @@
 
 <%= render @schedules %>
 
+<% if @bookings %>
 <div class="listing-all">
   <h2>Your bookings</h2>
 
@@ -13,6 +14,7 @@
   <p><%= b.schedule.human_readable_date %></p>
   <%= link_to "Show Booking", schedule_booking_path(b.schedule_id, b.id) %>
   <% end %>
+<% end %>
 
 </div>
   
